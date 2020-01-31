@@ -1,0 +1,1 @@
+import generate_build_config

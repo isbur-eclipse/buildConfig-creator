@@ -7,13 +7,14 @@ spec:
   output:
     to:
       kind: DockerImage
-      name: {{dockerimage_destination}}
+      {%set path_components = [docker_repo, galushka_name+":latest"]%}
+      name: {{path_components|path_join}}
     pushSecret:
       name: dockerhub.pushsecret
   resources:
     limits:
       cpu: {{number_of_CPU_cores|default('4')}}
-      memory: {{memory_allowed|default(2Gi)}}
+      memory: {{memory_allowed|default('2Gi')}}
   successfulBuildsHistoryLimit: 5
   failedBuildsHistoryLimit: 5
   strategy:
