@@ -1,4 +1,7 @@
 import os
+dirname = os.path.dirname(__file__)
+settings_file_name = os.path.join(dirname, "settings.yaml")
+template_file_name = os.path.join(dirname, 'ancestor-build-config.yaml')
 
 #Import necessary functions from Jinja2 module
 from jinja2 import Environment, FileSystemLoader
@@ -7,17 +10,17 @@ from jinja2 import Environment, FileSystemLoader
 import yaml
 
 #Load data from YAML into Python dictionary
-config_data = yaml.load(open('./settings.yaml'))
+config_data = yaml.load(open(settings_file_name))
 
 
 #Load Jinja2 template
 env = Environment(loader = FileSystemLoader('.'), trim_blocks=True, lstrip_blocks=True)
 
 def path_join(path_components):
-  return os.path.join(*path_components)
+    return os.path.join(*path_components)
 env.filters['path_join']=path_join
 
-template = env.get_template('ancestor-build-config.yaml')
+template = env.get_template(template_file_name)
 
 
 
