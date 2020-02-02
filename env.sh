@@ -1,0 +1,1 @@
+export OPENSHIFT_PROJECT_NAME=
