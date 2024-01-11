@@ -6,7 +6,7 @@ authors = ["Igor Burenkov <isburenkov@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.7"
-Jinja2 = "^2.11"
+Jinja2 = "^3.1"
 PyYAML = "^5.3"
 
 [tool.poetry.dev-dependencies]
